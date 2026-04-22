@@ -1,14 +1,10 @@
 <?php
 
-
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
+use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/productos', function () {
-    return "Productos aún no listados";
-});
+Route::get('/', [ProductoController::class, 'index']);
+Route::get('/productos', [ProductoController::class, 'index']);
 Route::get('/productos/agregar', [ProductoController::class, 'create']);
 Route::post('/productos', [ProductoController::class, 'store']);
+Route::delete('/productos/{codigo}', [ProductoController::class, 'destroy']);

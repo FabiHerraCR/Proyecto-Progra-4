@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,68 +6,87 @@
     <title>Laravel</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('js/script.js') }}" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!--Libreria de iconos-->
-    <script></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
     <div class="cabecera">
         <h2 id="texto-crud">CRUD Productos Laravel</h2>
-        <button id="add-button" onclick= "cambiarPestaña('/productos/agregar') ">Agregar nuevo Producto</button>
+        <button id="add-button" onclick="cambiarPestana('/productos/agregar')">Agregar nuevo Producto</button>
     </div>
 
     <div class="buscador-cont">
         <div class="buscador">
-            <input id="buscar-inp"   type="text" placeholder="Buscar Producto" name="Buscar">
-            <button id="buscar-btn">
+            <input id="buscar-inp" type="text" placeholder="Buscar Producto" name="Buscar">
+            <button id="buscar-btn" type="button">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
     </div>
 
     <div class="productos-cont">
-    <table id="tabla-productos">
-        <thead>
-            <tr>
-                <th>Codigo</th>
-                <th>Producto</th>
-                <th>Categoria</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th id="acciones"></th>
-            </tr>
-        </thead>
-    <tbody>
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>
-                <div class="acciones-btn">
-                    <button class="editar-btn">
-                        <i class="fa-solid fa-pen"></i> <!-- Icono de Lapiz-->
-                    </button>
-                    <button class="borrar-btn">
-                        <i class="fa-solid fa-trash"></i> <!-- Icono de Basura-->
-                    </button>
-                </div>
-            </th>
-         
+        @if(session('success'))
+            <p>{{ session('success') }}</p>
+        @elseif(session('error'))
+            <p>{{ session('error') }}</p>
+        @endif
 
-
-        </tr>
-    </tbody>
-    </table>
+        <table id="tabla-productos">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Producto</th>
+                    <th>Categoria</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th id="acciones"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($productos as $producto)
+                    <tr>
+                        <td>{{ $producto->codigo }}</td>
+                        <td>{{ $producto->nombre }}</td>
+                        <td>{{ $producto->categoria }}</td>
+                        <td>{{ $producto->precio }}</td>
+                        <td>{{ $producto->stock }}</td>
+                        <td>
+                            <div class="acciones-btn">
+                                <button class="editar-btn" type="button">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <form action="/productos/{{ $producto->codigo }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="borrar-btn" type="submit">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="acciones-btn">
+                                <button class="editar-btn" type="button">
+                                    <i class="fa-solid fa-pen"></i>
+                                </button>
+                                <button class="borrar-btn" type="button">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
     </div>
-
-    <?php
-
-
-    ?>
-
-
 
 </body>
 </html>
