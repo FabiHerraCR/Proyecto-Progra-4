@@ -69,23 +69,6 @@
                     </tr>
                 @endforeach
                 <!-- @endforeach Termina el ciclo de $productos -->
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <div class="acciones-btn">
-                                <button class="editar-btn" type="button">
-                                    <i class="fa-solid fa-pen"></i>
-                                </button>
-                                <button class="borrar-btn" type="button">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
             </tbody>
         </table>
     </div>
