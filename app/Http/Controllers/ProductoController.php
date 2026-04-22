@@ -9,8 +9,10 @@ class ProductoController extends Controller
 {
     public function index()
     {
-        $productos = Producto::orderBy('id', 'desc')->get();
+        //Consulta TODOS los productos de la base de datos y los guarda en la variable $productos
+        $productos = Producto::all();
 
+        //Manda esos productos a la vista productos/index.blade.php para que los muestre en la pantalla
         return view('index', compact('productos'));
     }
 
