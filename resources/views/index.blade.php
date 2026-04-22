@@ -43,8 +43,8 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- @forelse recorre cada producto en la variable $productos, y la manda al controlador -->
-                @forelse($productos as $producto)
+                <!-- @foreach recorre cada producto en la variable $productos, y la manda al controlador -->
+                @foreach($productos as $producto)
                     <tr>
                         <!-- Muestra cada atributo del producto en una celda de la tabla -->
                         <td>{{ $producto->codigo }}</td>
@@ -71,8 +71,8 @@
                     <tr>
                         <td colspan="6">No hay productos registrados.</td>
                     </tr>
-                @endforelse
-                <!-- @endforelse Termina el ciclo de $productos -->
+                @endforeach
+                <!-- @endforeach Termina el ciclo de $productos -->
                     <tr>
                         <td></td>
                         <td></td>
