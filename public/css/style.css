@@ -101,9 +101,11 @@ body {
    
 }
 
-#tabla-productos th,td{
+#tabla-productos th,
+#tabla-productos td {
     border-bottom: 1px solid #ddd;
     padding: 10px;
+    text-align: center;        /* 🔥 centra horizontal */
 }
 
 #acciones{
