@@ -67,10 +67,6 @@
                             </div>
                         </td>
                     </tr>
-                @empty
-                    <tr>
-                        <td colspan="6">No hay productos registrados.</td>
-                    </tr>
                 @endforeach
                 <!-- @endforeach Termina el ciclo de $productos -->
                     <tr>
