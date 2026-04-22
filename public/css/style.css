@@ -1,0 +1,194 @@
+body {
+    font-family: Arial,  sans-serif;
+    background-color: #ffffff;
+
+}
+
+.cabecera{
+    display: flex;
+    padding: 15px;
+    background-color: #334d94;
+    color: white;
+    align-items:center;
+}
+
+#texto-crud{
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+#add-button{
+    margin-right: 15px;
+    margin-left: auto;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #1aa34c;
+    color: white;
+}
+#add-button:hover{
+    background-color: #15833e;
+}
+.buscador-cont{
+    margin-top: 15px;
+    margin-right: 40px;
+    display: flex;
+}
+
+.buscador{
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    gap: 3px;
+}
+
+#buscar-inp{
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+#buscar-btn{
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: #3B82F6;
+    color: white;
+    cursor: pointer;
+}
+
+#buscar-btn:hover{
+    background-color: #2d61b4;
+}
+
+.acciones-btn{
+    display: flex;
+    gap: 13px;
+
+}
+.borrar-btn{
+    background-color: white;
+    border: none;
+    color: red;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.editar-btn{
+
+    background-color: white;
+    border: none;
+    color: rgb(194, 194, 4);
+    padding: 8px;
+    cursor: pointer;
+}
+
+.productos-cont{
+    display: flex;
+    margin: 10px auto;
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+}
+
+#tabla-productos{
+    border-collapse: collapse;
+    border-spacing: 0 10px; 
+    border-color: #ccc;
+    width: 100%;
+   
+}
+
+#tabla-productos th,td{
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+#acciones{
+    width: 8%;
+}
+
+
+#NuevoProducto-Txt{
+    color: white;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+
+.AgregarP-Fondo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+
+}
+
+.NuevoProducto-Form form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 13px;
+
+}
+
+#Cancelar-btn{
+    padding: 8px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    background-color: #83888d;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+#Cancelar-btn:hover{
+    background-color: #66686b;
+}
+
+.NuevoProducto-Form input[type="submit"]{
+    margin-top: 5px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.NuevoProducto-Form input[type="submit"]:hover{
+    background-color: #218838;
+}
+
+.NuevoProducto-Form input{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+
+}
+
+.NuevoProducto-Form{
+    background-color: #334d94;
+    margin-top: -70px;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.Mensaje-Guardado{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.Mensaje-Guardado h4{
+    background-color: #334d94;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    width: 300px;
+    text-align: center;
+}
