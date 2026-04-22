@@ -13,7 +13,7 @@ class ProductoController extends Controller
         $productos = Producto::all();
 
         //Manda esos productos a la vista productos/index.blade.php para que los muestre en la pantalla
-        return view('productos.index', compact('productos'));
+        return view('index', compact('productos'));
     }
 
     public function create()
