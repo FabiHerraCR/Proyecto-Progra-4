@@ -21,6 +21,17 @@ class ProductoController extends Controller
         return view('productos.agregar');
     }
 
+    public function buscar(Request $request){
+        
+        $buscar = $request->input('buscar');
+
+        $productos = Producto::where('nombre', 'like', "%$buscar%")
+                    ->orWhere('categoria', 'like', "%$buscar%")
+                    ->get();
+
+        return view('index', compact('productos'));
+    }
+
     public function store(Request $request)
     {
         $datos = $request->validate([

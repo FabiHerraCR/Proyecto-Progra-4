@@ -16,12 +16,12 @@
     </div>
 
     <div class="buscador-cont">
-        <div class="buscador">
-            <input id="buscar-inp" type="text" placeholder="Buscar Producto" name="Buscar">
-            <button id="buscar-btn" type="button">
+        <form method="GET" action="/buscar" class="buscador">
+            <input id="buscar-inp" type="text" placeholder="Buscar Producto" name="buscar" value="{{ request('buscar') }}">
+            <button id="buscar-btn" type="submit">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-        </div>
+        </form>
     </div>
 
     <div class="productos-cont">

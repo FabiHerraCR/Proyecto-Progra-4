@@ -19,3 +19,5 @@ Route::post('/productos', [ProductoController::class, 'store']);
 //Cuando el usuario envía la solicitud para eliminar un producto, laravel llama al método destroy del ProductoController
 //que se encarga de eliminar el producto de la base de datos
 Route::delete('/productos/{codigo}', [ProductoController::class, 'destroy']);
+
+Route::get('/buscar', [ProductoController::class, 'buscar']);
