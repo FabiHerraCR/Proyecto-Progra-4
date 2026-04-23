@@ -137,6 +137,17 @@ body {
 
 }
 
+.campo-form{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo-form label{
+    color: white;
+    font-size: 14px;
+}
+
 #Cancelar-btn{
     padding: 8px;
     color: white;
@@ -168,6 +179,12 @@ body {
     border-radius: 8px;
     border: 1px solid #ccc;
 
+}
+
+.input-readonly{
+    background-color: #e9ecef;
+    color: #555;
+    cursor: not-allowed;
 }
 
 .NuevoProducto-Form{

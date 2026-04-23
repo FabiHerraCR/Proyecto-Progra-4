@@ -53,7 +53,7 @@
                         <td>{{ $producto->stock }}</td>
                         <td>
                             <div class="acciones-btn">
-                                <button class="editar-btn" type="button">
+                                <button class="editar-btn" type="button" onclick="cambiarPestana('/productos/{{ $producto->codigo }}/editar')">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
                                 <form action="/productos/{{ $producto->codigo }}" method="POST">
@@ -67,7 +67,7 @@
                         </td>
                     </tr>
                 @endforeach
-                {{-- @endforeach Termina el ciclo --}}    
+                {{-- @endforeach Termina el ciclo --}}
             </tbody>
         </table>
     </div>

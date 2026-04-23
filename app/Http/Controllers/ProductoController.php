@@ -21,13 +21,20 @@ class ProductoController extends Controller
         return view('productos.agregar');
     }
 
-    public function buscar(Request $request){
-        
+    public function edit(string $codigo)
+    {
+        $producto = Producto::where('codigo', $codigo)->firstOrFail();
+
+        return view('productos.editar', compact('producto'));
+    }
+
+    public function buscar(Request $request)
+    {
         $buscar = $request->input('buscar');
 
         $productos = Producto::where('nombre', 'like', "%$buscar%")
-                    ->orWhere('categoria', 'like', "%$buscar%")
-                    ->get();
+            ->orWhere('categoria', 'like', "%$buscar%")
+            ->get();
 
         return view('index', compact('productos'));
     }
@@ -48,6 +55,26 @@ class ProductoController extends Controller
             return back()->with('success', 'Producto guardado');
         } catch (\Exception $e) {
             return back()->with('error', 'No se pudo guardar');
+        }
+    }
+
+    public function update(Request $request, string $codigo)
+    {
+        $producto = Producto::where('codigo', $codigo)->firstOrFail();
+
+        $datos = $request->validate([
+            'nombre' => 'required|string|max:255',
+            'categoria' => 'required|string|max:255',
+            'precio' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+        ]);
+
+        try {
+            $producto->update($datos);
+
+            return redirect('/')->with('success', 'Producto actualizado');
+        } catch (\Exception $e) {
+            return back()->with('error', 'No se pudo actualizar');
         }
     }
 
