@@ -9,6 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('productos', function (Blueprint $table) {
+            //Agrega un codigo unico para poder ubicar cada producto al eliminar
             $table->string('codigo')->unique()->after('id');
         });
     }

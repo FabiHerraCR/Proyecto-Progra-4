@@ -42,6 +42,7 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $datos = $request->validate([
+            //El codigo es obligatorio y no se puede repetir porque se usa para buscar el producto al eliminar
             'codigo' => 'required|string|max:50|unique:productos,codigo',
             'nombre' => 'required|string|max:255',
             'categoria' => 'required|string|max:255',
@@ -80,9 +81,11 @@ class ProductoController extends Controller
 
     public function destroy(string $codigo)
     {
+        //Busca el producto por codigo; si no existe, Laravel muestra error 404
         $producto = Producto::where('codigo', $codigo)->firstOrFail();
 
         try {
+            //Elimina el registro encontrado en la tabla productos
             $producto->delete();
 
             return redirect('/')->with('success', 'Producto eliminado');

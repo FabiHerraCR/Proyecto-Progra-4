@@ -56,8 +56,10 @@
                                 <button class="editar-btn" type="button" onclick="cambiarPestana('/productos/{{ $producto->codigo }}/editar')">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
+                                {{-- Envia el codigo del producto a la ruta que lo elimina --}}
                                 <form action="/productos/{{ $producto->codigo }}" method="POST">
                                     @csrf
+                                    {{-- Laravel interpreta este formulario como una solicitud DELETE --}}
                                     @method('DELETE')
                                     <button class="borrar-btn" type="submit">
                                         <i class="fa-solid fa-trash"></i>
