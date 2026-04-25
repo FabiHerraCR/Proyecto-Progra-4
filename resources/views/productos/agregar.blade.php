@@ -22,7 +22,7 @@
                 <input type="submit" value="Guardar Producto">
             </form>
 
-            <input id="Cancelar-btn" onclick="cambiarPestana('/')" type="button" value="Cancelar">
+            <input id="Cancelar-btn" onclick="cambiarPestana('/')" type="button" value="Regresar a inicio">
 
             @if($errors->any())
                 <div class="Mensaje-Guardado">
